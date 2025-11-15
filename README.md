@@ -17,7 +17,7 @@ A production-ready SvelteKit template with Supabase, Tailwind CSS, and automated
 
 ## Prerequisites
 
-- **Node.js 20+** (LTS)
+- **Node.js 24+** (LTS - Krypton)
 - **pnpm 9+**
 - **Supabase CLI** (for local development)
 - **Git**
