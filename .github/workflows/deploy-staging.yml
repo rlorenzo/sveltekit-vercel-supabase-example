@@ -14,7 +14,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '20'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -63,5 +63,7 @@ jobs:
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
           scope: ${{ secrets.VERCEL_ORG_ID }}
-          alias-domains: |
-            staging.yourdomain.com
+          # Optional: Set a custom staging domain
+          # Add STAGING_ALIAS_DOMAIN to your repository secrets if you want a custom domain
+          # Otherwise, Vercel will provide a default preview URL
+          alias-domains: ${{ secrets.STAGING_ALIAS_DOMAIN }}

@@ -17,7 +17,7 @@ A production-ready SvelteKit template with Supabase, Tailwind CSS, and automated
 
 ## Prerequisites
 
-- **Node.js 24+** (LTS)
+- **Node.js 20+** (LTS)
 - **pnpm 9+**
 - **Supabase CLI** (for local development)
 - **Git**
@@ -241,6 +241,13 @@ VERCEL_PROJECT_ID     - Get from Vercel project settings
 SUPABASE_ACCESS_TOKEN       - Get from supabase.com/dashboard/account/tokens
 STAGING_SUPABASE_DB_URL     - Connection string for staging project
 PRODUCTION_SUPABASE_DB_URL  - Connection string for production project
+```
+
+**Optional Secrets:**
+
+```
+STAGING_ALIAS_DOMAIN        - (Optional) Custom domain for staging deployments
+                              If not set, Vercel will provide a default preview URL
 ```
 
 #### Vercel Setup
