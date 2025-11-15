@@ -82,7 +82,7 @@ This section explains the complete development workflow from local development t
 
 The workflow follows a standard Git branching strategy with automated CI/CD:
 
-```
+```text
 Local Development → Feature Branch → Pull Request → Staging → Production
        ↓                  ↓               ↓            ↓           ↓
   Local Tests      GitHub Actions    Code Review   Staging    Production
@@ -229,7 +229,7 @@ To enable this workflow, you need to configure three services:
 
 **Vercel Secrets:**
 
-```
+```text
 VERCEL_TOKEN          - Get from vercel.com/account/tokens
 VERCEL_ORG_ID         - Get from Vercel project settings
 VERCEL_PROJECT_ID     - Get from Vercel project settings
@@ -237,7 +237,7 @@ VERCEL_PROJECT_ID     - Get from Vercel project settings
 
 **Supabase Secrets:**
 
-```
+```text
 SUPABASE_ACCESS_TOKEN       - Get from supabase.com/dashboard/account/tokens
 STAGING_SUPABASE_DB_URL     - Connection string for staging project
 PRODUCTION_SUPABASE_DB_URL  - Connection string for production project
@@ -245,7 +245,7 @@ PRODUCTION_SUPABASE_DB_URL  - Connection string for production project
 
 **Optional Secrets:**
 
-```
+```text
 STAGING_ALIAS_DOMAIN        - (Optional) Custom domain for staging deployments
                               If not set, Vercel will provide a default preview URL
 ```
@@ -382,7 +382,7 @@ pnpm dev
 
 ### Workflow Diagram
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────────────┐
 │ Developer Machine                                                    │
 │                                                                      │
@@ -433,7 +433,7 @@ pnpm dev
 
 ### Common Scenarios
 
-**Scenario 1: Adding a new feature**
+#### Scenario 1: Adding a new feature
 
 ```bash
 git checkout staging
@@ -452,7 +452,7 @@ git push -u origin feature/new-dashboard
 # After approval, merge to main
 ```
 
-**Scenario 2: Database schema change**
+#### Scenario 2: Database schema change
 
 ```bash
 # On your feature branch
@@ -465,7 +465,7 @@ git push
 # Migration will run automatically on staging/production deploy
 ```
 
-**Scenario 3: Hotfix for production**
+#### Scenario 3: Hotfix for production
 
 ```bash
 git checkout main
@@ -510,7 +510,7 @@ git push -u origin hotfix/critical-bug
 
 ## Project Structure
 
-```
+```text
 ├── .github/
 │   └── workflows/          # GitHub Actions CI/CD workflows
 │       ├── lint.yml        # Linting workflow
@@ -768,7 +768,7 @@ export default {
 
 Create files in `src/routes/`:
 
-```
+```text
 src/routes/
   about/
     +page.svelte          # /about

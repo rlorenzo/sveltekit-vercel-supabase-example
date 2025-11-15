@@ -12,3 +12,10 @@ vite.config.ts.timestamp-*
 # Supabase
 .branches
 .temp
+
+# Vercel
+.vercel
+
+# Test results
+/test-results/
+/playwright-report/
