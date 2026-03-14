@@ -754,13 +754,13 @@ Edit `tailwind.config.js`:
 
 ```javascript
 export default {
-	theme: {
-		extend: {
-			colors: {
-				brand: '#your-color'
-			}
-		}
-	}
+  theme: {
+    extend: {
+      colors: {
+        brand: '#your-color',
+      },
+    },
+  },
 };
 ```
 

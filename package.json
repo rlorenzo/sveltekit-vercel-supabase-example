@@ -1,70 +1,54 @@
 {
-	"name": "sveltekit-vercel-supabase-template",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --check . && eslint . && markdownlint-cli2 \"**/*.md\"",
-		"lint:md": "markdownlint-cli2 \"**/*.md\"",
-		"format": "prettier --write .",
-		"test": "vitest run",
-		"test:watch": "vitest",
-		"test:e2e": "playwright test",
-		"prepare": "husky"
-	},
-	"devDependencies": {
-		"@eslint/js": "^9.39.1",
-		"@playwright/test": "^1.48.0",
-		"@sveltejs/adapter-vercel": "^5.4.0",
-		"@sveltejs/kit": "^2.14.0",
-		"@sveltejs/vite-plugin-svelte": "^5.1.1",
-		"@types/eslint": "^9.6.0",
-		"@types/node": "^24.10.1",
-		"autoprefixer": "^10.4.20",
-		"eslint": "^9.15.0",
-		"eslint-config-prettier": "^9.1.0",
-		"eslint-plugin-svelte": "^2.46.0",
-		"globals": "^15.12.0",
-		"husky": "^9.1.0",
-		"jsdom": "^27.2.0",
-		"lint-staged": "^15.2.0",
-		"markdownlint-cli2": "^0.19.0",
-		"postcss": "^8.4.49",
-		"prettier": "^3.3.0",
-		"prettier-plugin-svelte": "^3.2.8",
-		"prettier-plugin-tailwindcss": "^0.6.0",
-		"svelte": "^5.2.0",
-		"svelte-check": "^4.0.0",
-		"tailwindcss": "^3.4.0",
-		"tslib": "^2.8.0",
-		"typescript": "^5.7.0",
-		"typescript-eslint": "^8.15.0",
-		"vite": "^6.0.0",
-		"vitest": "^2.1.0"
-	},
-	"dependencies": {
-		"@supabase/supabase-js": "^2.46.0"
-	},
-	"type": "module",
-	"engines": {
-		"node": ">=24.0.0",
-		"pnpm": ">=9.0.0"
-	},
-	"lint-staged": {
-		"*.{js,ts,svelte}": [
-			"eslint --fix",
-			"prettier --write"
-		],
-		"*.md": [
-			"markdownlint-cli2",
-			"prettier --write"
-		],
-		"*.{json,css,html}": [
-			"prettier --write"
-		]
-	}
+  "name": "sveltekit-vercel-supabase-template",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "vp check && markdownlint-cli2 \"**/*.md\"",
+    "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "format": "vp fmt",
+    "test": "vp test",
+    "test:watch": "vp test --watch",
+    "test:e2e": "playwright test",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.46.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "@sveltejs/adapter-vercel": "^5.4.0",
+    "@sveltejs/kit": "^2.14.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "@types/node": "^24.10.1",
+    "autoprefixer": "^10.4.20",
+    "husky": "^9.1.0",
+    "jsdom": "^27.2.0",
+    "markdownlint-cli2": "^0.19.0",
+    "oxfmt-prettier-svelte": "^0.0.1",
+    "postcss": "^8.4.49",
+    "svelte": "^5.2.0",
+    "svelte-check": "^4.0.0",
+    "tailwindcss": "^3.4.0",
+    "tslib": "^2.8.0",
+    "typescript": "^5.7.0",
+    "vite": "^8.0.0",
+    "vite-plus": "^0.1.11",
+    "vitest": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=24.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
+  }
 }
