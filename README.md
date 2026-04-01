@@ -13,7 +13,7 @@ A production-ready SvelteKit template with Supabase, Tailwind CSS, and automated
 - ✅ **Vitest** - Unit testing
 - 🎭 **Playwright** - End-to-end testing
 - 📝 **TypeScript** - Type safety
-- 🎯 **ESLint + Prettier** - Code formatting and linting
+- 🎯 **Vite+ (Oxlint + Oxfmt)** - Fast, unified linting and formatting via `vp check` / `vp fmt`
 
 ## Prerequisites
 
@@ -137,8 +137,8 @@ git push -u origin feature/your-feature-name
 **What happens on push:**
 
 - Pre-commit hooks run:
-  - **lint-staged**: Runs ESLint with auto-fix and Prettier on staged files
-  - **Tests**: Runs all unit tests (Vitest)
+  - **vp staged**: Runs `vp check --fix` on staged JS/TS/Svelte files and `markdownlint-cli2` on staged Markdown
+  - **Tests**: Runs all unit tests (`vp test`)
 - If hooks pass, code is pushed to GitHub
 
 **Create the PR:**
@@ -152,8 +152,8 @@ git push -u origin feature/your-feature-name
 **What happens when PR is created:**
 
 - **Lint workflow** (`.github/workflows/lint.yml`) runs:
-  - Checks code formatting with Prettier
-  - Runs ESLint
+  - Runs `vp check` (Oxlint + Oxfmt format check)
+  - Runs `markdownlint-cli2` on Markdown files
 - **Test workflow** (`.github/workflows/test.yml`) runs:
   - Runs unit tests (Vitest)
   - Runs E2E tests (Playwright)
@@ -396,7 +396,7 @@ pnpm dev
 ┌─────────────────────────────────────────────────────────────────────┐
 │ GitHub - Pull Request to staging                                    │
 │                                                                      │
-│  → Lint workflow runs (ESLint + Prettier)                           │
+│  → Lint workflow runs (Oxlint + Oxfmt via vp check)                 │
 │  → Test workflow runs (Vitest + Playwright)                         │
 │  → Code review by team                                              │
 │  → Merge to staging branch                                          │
@@ -538,14 +538,12 @@ git push -u origin hotfix/critical-bug
 ├── tests/
 │   └── home.spec.ts        # E2E tests
 ├── static/                 # Static assets
-├── .prettierrc             # Prettier configuration
-├── eslint.config.js        # ESLint configuration
 ├── playwright.config.ts    # Playwright configuration
 ├── svelte.config.js        # SvelteKit configuration
 ├── tailwind.config.js      # Tailwind CSS configuration
 ├── tsconfig.json           # TypeScript configuration
 ├── vercel.json             # Vercel deployment config
-└── vite.config.ts          # Vite configuration
+└── vite.config.ts          # Vite+ config: build, test, lint (Oxlint), fmt (Oxfmt), staged hooks
 ```
 
 ## Available Scripts
@@ -557,8 +555,8 @@ pnpm build            # Build for production
 pnpm preview          # Preview production build
 
 # Code Quality
-pnpm lint             # Run ESLint
-pnpm format           # Format code with Prettier
+pnpm lint             # Run Oxlint + Oxfmt check (vp check) and markdownlint
+pnpm format           # Format all files with Oxfmt (vp fmt)
 pnpm check            # Type-check with svelte-check
 
 # Testing
@@ -691,8 +689,8 @@ git push -u origin staging
 
 Husky is configured to run before each commit:
 
-1. **Lint-staged** - Runs ESLint and Prettier on staged files
-2. **Tests** - Runs all unit tests
+1. **vp staged** - Runs `vp check --fix` (Oxlint + Oxfmt) on staged JS/TS/Svelte files and `markdownlint-cli2` on staged Markdown files
+2. **Tests** - Runs all unit tests via `vp test`
 
 To bypass hooks (not recommended):
 

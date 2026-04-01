@@ -1,12 +1,9 @@
 {
   // Editor
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
+  "editor.defaultFormatter": "oxc.oxc-vscode",
   "editor.tabSize": 2,
-  "editor.insertSpaces": false,
+  "editor.insertSpaces": true,
   "editor.detectIndentation": false,
 
   // Files
@@ -18,17 +15,9 @@
   "[svelte]": {
     "editor.defaultFormatter": "svelte.svelte-vscode"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+
+  // Language-specific settings
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.wordWrap": "on",
     "editor.quickSuggestions": {
       "comments": "off",
@@ -40,8 +29,8 @@
   // Svelte
   "svelte.enable-ts-plugin": true,
 
-  // ESLint
-  "eslint.validate": ["javascript", "typescript", "svelte"],
+  // Oxlint (via oxc.oxc-vscode)
+  "oxc.enable": true,
 
   // Tailwind CSS
   "tailwindCSS.experimental.classRegex": [
@@ -54,9 +43,6 @@
   // TypeScript
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-
-  // Prettier
-  "prettier.requireConfig": true,
 
   // Markdownlint
   "markdownlint.config": {

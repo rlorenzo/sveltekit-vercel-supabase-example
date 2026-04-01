@@ -8,9 +8,15 @@ CREATE TABLE IF NOT EXISTS public.items (
 -- Enable Row Level Security
 ALTER TABLE public.items ENABLE ROW LEVEL SECURITY;
 
--- Create a policy that allows all operations for now (adjust based on your auth requirements)
-CREATE POLICY "Allow all operations on items" ON public.items
+-- Read access for all users (including anonymous)
+CREATE POLICY "Allow anonymous read on items" ON public.items
+    FOR SELECT
+    USING (true);
+
+-- Full access for authenticated users only
+CREATE POLICY "Allow authenticated full access on items" ON public.items
     FOR ALL
+    TO authenticated
     USING (true)
     WITH CHECK (true);
 

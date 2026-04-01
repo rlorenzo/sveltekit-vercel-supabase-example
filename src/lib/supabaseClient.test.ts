@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeAll } from 'vitest';
 import { createClient } from '@supabase/supabase-js';
 
 // Mock the Supabase createClient function
@@ -16,8 +16,13 @@ vi.mock('@supabase/supabase-js', () => ({
 }));
 
 describe('Supabase Client', () => {
+  // Import the module once for all tests so each test is self-contained
+  // and does not rely on execution order.
+  beforeAll(async () => {
+    await import('./supabaseClient');
+  });
+
   it('should export a supabase client instance', async () => {
-    // Import after mocking
     const module = await import('./supabaseClient');
 
     expect(module.supabase).toBeDefined();
