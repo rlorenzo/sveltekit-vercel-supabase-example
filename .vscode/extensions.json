@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "svelte.svelte-vscode",
+    "oxc.oxc-vscode",
+    "bradlc.vscode-tailwindcss",
+    "davidanson.vscode-markdownlint",
+    "supabase.supabase-vscode",
+    "ms-playwright.playwright"
+  ]
+}
