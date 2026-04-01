@@ -1,8 +1,9 @@
+import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite-plus';
 
 export default defineConfig({
-  plugins: [sveltekit()],
+  plugins: [tailwindcss(), sveltekit()],
 
   // Vitest — powered by @voidzero-dev/vite-plus-test
   test: {
@@ -18,7 +19,6 @@ export default defineConfig({
     },
     rules: {
       'no-console': ['warn', { allow: ['error'] }],
-      'typescript-eslint/unbound-method': 'off',
     },
   },
 
